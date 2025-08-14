@@ -1,0 +1,21 @@
+SELECT * FROM sqlexample.제품;
+
+# 기본 조인
+# 암시적 조인(옛날 스타일)
+select 제품.제품명
+from 제품, 주문
+where 주문.주문고객 = 'banana' and 제품.제품번호 = 주문.주문제품;
+# 제품.제품번호(PK), 주문.주문제품(외래키)
+
+# 명시적 조인 (요즘 권장하는 스타일)
+select 제품.제품명
+from 제품
+join 주문 ON 제품.제품번호 = 주문.주문제품
+where 주문.주문고객 = 'banana';
+
+# inner join (join default)
+select 제품명 
+from 제품
+inner join 주문 ON 제품.제품번호 = 주문.주문제품
+where 주문.주문고객 = 'banana';
+
